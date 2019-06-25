@@ -8,19 +8,23 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ProductsComponent } from './pos/products/products.component';
 import { CartComponent } from './pos/cart/cart.component';
 import { OrderComponent } from './pos/order/order.component';
+import { ItemBoxComponent } from './pos/item-box/item-box.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     CartComponent,
-    OrderComponent
+    OrderComponent,
+    ItemBoxComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatGridListModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
