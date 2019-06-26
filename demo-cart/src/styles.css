@@ -8,12 +8,18 @@
   
   /* Left and right column */
   .column.sideone {
-    width: 45%;
+    width: 40%;
+    background-color: #ddd;
+    height:90vh;
+    overflow-y: scroll;
   }
   
   /* Middle column */
   .column.sidetwo {
-    width: 50%;
+    width: 55%;
+    background-color: #ddd;
+    height:90vh;
+    overflow-y: scroll;
   }
   
   /* Clear floats after the columns */
