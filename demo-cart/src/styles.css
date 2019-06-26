@@ -11,7 +11,6 @@
     width: 40%;
     background-color: #ddd;
     height:90vh;
-    overflow-y: scroll;
   }
   
   /* Middle column */
@@ -20,6 +19,7 @@
     background-color: #ddd;
     height:90vh;
     overflow-y: scroll;
+    margin-left: 5px;
   }
   
   /* Clear floats after the columns */
@@ -34,4 +34,28 @@
   table{
     width: 100%;
   }
-  
+  .cart{
+    height: 450px;
+    overflow-y: scroll;
+  }
+  .cartRow{
+    background-color: white;
+  }
+  .cartRow td{
+    padding: 6px 8px;
+  }
+  body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+  }
+  .cross{
+
+  }
+  .minus , .plus{
+    background-color: dimgray;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    color: white;
+  }
+ 
