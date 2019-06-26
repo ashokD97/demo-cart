@@ -7,7 +7,7 @@ import { ProductListService } from '../product-list-service/product-list.service
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
+  
   constructor(private productListService :ProductListService) { }
   cartItems:any;
   ngOnInit() {
@@ -25,4 +25,5 @@ export class CartComponent implements OnInit {
   removeFromCartAll(item){
     this.productListService.removeFromCartAll(item);
   }
+ 
 }

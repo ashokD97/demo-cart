@@ -1,4 +1,5 @@
 <div class="cart">
+  
     <table>
         <tr>
           <th>Product</th>
@@ -6,22 +7,28 @@
           <th>Quantity</th>
           <th>Total</th>
         </tr>
-        <tr *ngFor="let item of cartItems" class="cartRow">
+       <ng-container *ngIf="cartItems.length">
+          <tr *ngFor="let item of cartItems" class="cartRow">
           
-          <td>
-              <span>
-                  <button class="cross" (click)="removeFromCartAll(item)">x</button>
-              </span>
-              {{item.name}}
-          </td>
-          <td>{{item.price}}</td>
-          <td>
-            <span><button class="minus" (click)="removeFromCart(item)">-</button></span>
-            {{item.quantity}}
-            <span><button class="plus" (click)="addToCart(item)">+</button></span>
-          </td>
-          <td>{{item.total}}</td>
-        </tr>
+              <td>
+                  <span>
+                      <button class="cross" (click)="removeFromCartAll(item)">x</button>
+                  </span>
+                  {{item.name}}
+              </td>
+              <td>{{item.price}}</td>
+              <td>
+                <span><button class="minus" (click)="removeFromCart(item)">-</button></span>
+                {{item.quantity}}
+                <span><button class="plus" (click)="addToCart(item)">+</button></span>
+              </td>
+              <td>{{item.total}}</td>
+            </tr>
+       </ng-container>
         
       </table>
+      <div *ngIf="!cartItems.length" class="noProduct">
+          THERE ARE NO PRODUCTS.
+        </div>
 </div>
+

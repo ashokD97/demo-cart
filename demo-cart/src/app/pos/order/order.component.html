@@ -4,7 +4,7 @@
       <table>
           <tr>
             <th>Sub Total</th>
-            <th>{{order.subTotal}}</th> 
+            <th>{{order.subTotal}}INR</th> 
             <th>{{order.quantity}}</th>
           </tr>
           <tr>
@@ -23,10 +23,31 @@
           </tr>    
         </table>
        <span>
-          <button>Cancel</button>
+          <button class="cancelBtn" (click)="cancelSale()">Cancel Sale</button>
        </span> 
        <span>
-         <button>Proceed</button>
+         <button class="proceedBtn" (click)="proceedSale()">Proceed Sale</button>
        </span>
   </div>
 </div>
+
+<!-- The Modal -->
+<div #orderModal class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close" (click)="closeModal()">&times;</span>
+            <h2>Recipt</h2>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the Modal Body</p>
+            <p>Some other text...</p>
+          </div>
+          <!-- <div class="modal-footer">
+            <h3>Modal Footer</h3>
+          </div> -->
+          <button class="closeModal" (click)="closeModal()">Close</button>
+        </div>
+      
+      </div>

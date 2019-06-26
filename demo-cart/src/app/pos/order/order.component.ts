@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { ProductListService } from '../product-list-service/product-list.service';
 
 @Component({
@@ -7,8 +7,8 @@ import { ProductListService } from '../product-list-service/product-list.service
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-
-  constructor(private productListService : ProductListService) { }
+  @ViewChild('orderModal', {static: true})modal :ElementRef
+  constructor(private productListService : ProductListService, private renderer :Renderer2) { }
   order={
     subTotal:null,
     tax:null,
@@ -48,5 +48,13 @@ export class OrderComponent implements OnInit {
        }
     })
   }
+  cancelSale(){
 
+  }
+  proceedSale(){
+      this.renderer.addClass(this.modal.nativeElement,"show");
+  }
+ closeModal(){
+   this.renderer.addClass(this.modal.nativeElement,"hide");
+ }
 }
