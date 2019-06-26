@@ -12,10 +12,9 @@ export class ProductsComponent implements OnInit {
   
   ngOnInit() {
     this.productsListService.getAllProducts().subscribe((res=>{
-      console.log(res);
       this.allProducts = res;
     }));
    
   }
-
+ 
 }

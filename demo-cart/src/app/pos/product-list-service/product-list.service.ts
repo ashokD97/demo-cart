@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable,Subject } from 'rxjs';
+import { Observable,BehaviorSubject } from 'rxjs';
 
 interface cartItem{
   name:string,
@@ -15,7 +15,7 @@ interface cartItem{
 export class ProductListService {
 
   constructor(private http :HttpClient) { }
-  private cartItems = new Subject<any>();
+  private cartItems = new BehaviorSubject([]);
   currentCart = this.cartItems.asObservable();
 
   getAllProducts(): Observable<any>{
@@ -24,23 +24,32 @@ export class ProductListService {
   }
   
   addToCart(item){
-    this.getCart().subscribe(res=>{
-      let _cart = res;
-      res.forEach(element => {
-        if(element['name'] == item['name']){
-           _cart[element]['quantity']++;
-           _cart[element]['total'] = _cart[element]['price']*_cart[element]['quantity'];
-        }else{
-          item['quantity'] = 1;
-          item['total'] = item['price'];
-          _cart.push(item);
-        }
-      });
-      this.cartItems.next(_cart);
-    });
+   this.getCart();
+    let _cart = this.cartList;
+  
+    if(_cart.length){
+      let obj = _cart.findIndex(o => o.name === item['name']);
+      if(_cart[obj]){
+        _cart[obj]['quantity']++;
+        _cart[obj]['total'] = +(_cart[obj]['price'])*_cart[obj]['quantity'];
+      }else{
+        item['quantity'] = 1;
+        item['total'] = +(item['price'])*item['quantity'];
+        _cart.push(item);
+      }
+    
+    }else{
+      item['quantity'] = 1;
+      item['total'] = +(item['price'])*item['quantity'];
+      _cart.push(item);
+    }
+    
+    this.cartItems.next(_cart);
   }
-
+   cartList:any;
   getCart(){
-    return this.currentCart;
+    return this.cartItems.subscribe(res=>{
+      this.cartList = res;
+    });
   }
 }

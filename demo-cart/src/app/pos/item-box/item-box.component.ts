@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ProductListService } from '../product-list-service/product-list.service';
 
 @Component({
   selector: 'item-box',
@@ -7,10 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ItemBoxComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productsListService : ProductListService) { }
 
   ngOnInit() {
   }
   @Input('product') product;
+
+  addToCart(product){
+    let clickedItem = {name:product['name'],price:product['price']};
+    this.productsListService.addToCart(clickedItem);
+  }
 
 }
