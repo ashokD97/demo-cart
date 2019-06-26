@@ -12,11 +12,17 @@ export class CartComponent implements OnInit {
   cartItems:any;
   ngOnInit() {
     this.productListService.currentCart.subscribe(res=>{
-      console.log(res);
+      this.cartItems = res;
     });
   }
 
   addToCart(item){
     this.productListService.addToCart(item);
+  }
+  removeFromCart(item){
+    this.productListService.removeFromCart(item);
+  }
+  removeFromCartAll(item){
+    this.productListService.removeFromCartAll(item);
   }
 }

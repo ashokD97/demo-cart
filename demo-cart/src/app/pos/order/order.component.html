@@ -1,3 +1,32 @@
-<div>
+<div class="orderComp">
   <cart></cart>
+  <div class="orderTotal">
+      <table>
+          <tr>
+            <th>Sub Total</th>
+            <th>{{order.subTotal}}</th> 
+            <th>{{order.quantity}}</th>
+          </tr>
+          <tr>
+              <th>VAT Tax</th>
+              <th>{{order.taxPercent}}</th> 
+              <th>{{order.tax}}</th>
+          </tr>
+          <tr>
+              <th>Discount</th>
+              <th>{{order.discountPercent}}</th> 
+              <th>{{order.discount}}</th>
+          </tr>
+          <tr>
+              <th>Total</th>
+              <th>{{order.total}}</th> 
+          </tr>    
+        </table>
+       <span>
+          <button>Cancel</button>
+       </span> 
+       <span>
+         <button>Proceed</button>
+       </span>
+  </div>
 </div>
