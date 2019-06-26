@@ -1,2 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+  }
+  
+  /* Left and right column */
+  .column.sideone {
+    width: 45%;
+  }
+  
+  /* Middle column */
+  .column.sidetwo {
+    width: 50%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  th, td{
+     text-align: left;
+  }
+  table{
+    width: 100%;
+  }

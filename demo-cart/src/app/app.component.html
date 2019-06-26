@@ -1,18 +1,22 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <div>
-    <div style="width: 40%;display: inline-block;background-color: wheat;">
+
+  <!-- <div>
+    <div style="width: 45%;height:inherit;display: inline-block;background-color: wheat;">
 
        <order></order>
     </div>
-    <div style="width: 60%;display: inline-block;background-color: wheat;">
+    <div style="width: 55%;height:inherit;;display: inline-block;background-color: wheat;">
         <products></products>
     </div>
+  </div> -->
+  <div class="row">
+    <div class="column sideone">
+      <order></order>
+    </div>
+    
+    <div class="column sidetwo">
+      <products></products>
+    </div>
   </div>
-</div>
 
 
 <router-outlet></router-outlet>
